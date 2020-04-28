@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: white-deployment
+  namespace: colors-ns
+  labels:
+    app: white
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: white
+  template:
+    metadata:
+      labels:
+        app: white
+    spec:
+      containers:
+      - name: white-app
+        image: hashicorp/http-echo
+        args:
+        - "-text=white"
+        - "-listen=:8080"
+       
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: white-service
+  namespace: colors-ns
+spec:
+  selector:
+    app: white
+  ports:
+    - port: 8080
+

@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: colors-fanout-ingress
+  namespace: colors-ns
+  annotations:
+   kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: akscolors.penguintrails.com
+      http:
+        paths:
+        - path: /cyan
+          backend:
+                serviceName: cyan-service
+                servicePort: 8080
+        - path: /magenta
+          backend:
+                serviceName: magenta-service
+                servicePort: 8080
+        - path: /yellow
+          backend:
+                serviceName: yellow-service
+                servicePort: 8080
+        - path: 
+          backend:
+                serviceName: cyan-service
+                servicePort: 8080
