@@ -1,4 +1,4 @@
-# aks-ngix-ingress
+# aks-nginx-ingress
 AKS with nginx ingress controller
 # Application Gateway as Ingress Controller with Azure Kubernetes Service
 #
